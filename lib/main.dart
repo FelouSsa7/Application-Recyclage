@@ -1,11 +1,11 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:nadif/modal/annonce_model.dart';
 import 'package:nadif/provider/provider_auth.dart';
 import 'package:nadif/screens/onBoardingScreen.dart';
 import 'package:provider/provider.dart';
-import 'screens/welcome_screen.dart';
 
-void main() async{
+void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp();
 
@@ -19,13 +19,13 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider(create: (_)=>AuthProvider()),
+        ChangeNotifierProvider(create: (_) => AuthProvider()),
+        ChangeNotifierProvider<AnnonceModel>(create: (_) => AnnonceModel()),
       ],
-      child:  MaterialApp(
+      child: MaterialApp(
         debugShowCheckedModeBanner: false,
         home: OnboardingScreen(),
       ),
     );
   }
 }
-

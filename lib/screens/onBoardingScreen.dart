@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../component/onboarding_page.dart';
+
 class OnboardingScreen extends StatelessWidget {
   OnboardingScreen({Key? key}) : super(key: key);
 
@@ -16,7 +17,7 @@ class OnboardingScreen extends StatelessWidget {
             image: Image.asset("assets/Images/onboarding1.jpg"),
             title: "Welcome",
             description:
-            "Welcome to NADIF. Here you will find all about recycling at one place.",
+                "Bienvenue chez NADIF. Ici, vous trouverez tout ce qu'il faut savoir sur le recyclage, réuni en un seul endroit.",
             noOfScreen: 5,
             onNextPressed: changeScreen,
             currentScreenNo: 0,
@@ -24,8 +25,7 @@ class OnboardingScreen extends StatelessWidget {
           OnboardingPage(
             image: Image.asset("assets/Images/onboarding2.jpg"),
             title: "Compactge des déchets",
-            description:
-            "Compactez vos recyclables aprés les avoir nettoyés",
+            description: "Compactez vos recyclables aprés les avoir nettoyés",
             noOfScreen: 5,
             onNextPressed: changeScreen,
             currentScreenNo: 1,
@@ -35,7 +35,7 @@ class OnboardingScreen extends StatelessWidget {
             image: Image.asset("assets/Images/loca.png"),
             title: "Déposer vos déchets à vendre",
             description:
-            "Localisez votre position et publiez une annonce concernant vos déchets. Il y aura un calendrier pour la collecte des déchets.",
+                "Localisez votre position et publiez une annonce concernant vos déchets. Il y aura un calendrier pour la collecte des déchets.",
             noOfScreen: 5,
             onNextPressed: changeScreen,
             currentScreenNo: 2,
@@ -44,7 +44,7 @@ class OnboardingScreen extends StatelessWidget {
             image: Image.asset("assets/Images/point.jpg"),
             title: "Gagner des point",
             description:
-            "Pour chaque dépôt de déchets, vous gagnerez des points de ramassage.",
+                "Pour chaque dépôt de déchets, vous gagnerez des points de ramassage.",
             noOfScreen: 5,
             onNextPressed: changeScreen,
             currentScreenNo: 3,
@@ -53,7 +53,7 @@ class OnboardingScreen extends StatelessWidget {
             image: Image.asset("assets/Images/echange.jpg"),
             title: "Echange des points",
             description:
-            "Echangez vos Points contre des récompses sur notre Marketplace",
+                "Echangez vos Points contre des récompses sur notre Marketplace",
             noOfScreen: 5,
             onNextPressed: changeScreen,
             currentScreenNo: 4,

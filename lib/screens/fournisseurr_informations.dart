@@ -2,7 +2,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:nadif/modal/user_modal.dart';
 import 'package:nadif/provider/provider_auth.dart';
-import 'package:nadif/screens/home_screen.dart';
+import 'package:nadif/screens/home_ScreenFournisseur.dart';
 import 'package:nadif/utils/utils.dart';
 import 'package:nadif/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
@@ -41,7 +41,8 @@ class _FournisseurInformationsState extends State<FournisseurInformations> {
 
     return Scaffold(
       appBar: AppBar(
-        title: const Text('Hello User'),
+        title: const Text('Hello Fournisseur'),
+        backgroundColor: Colors.tealAccent,
       ),
       body: SafeArea(
         child: isLoading == true
@@ -181,7 +182,8 @@ class _FournisseurInformationsState extends State<FournisseurInformations> {
                         (value) => Navigator.pushAndRemoveUntil(
                             context,
                             MaterialPageRoute(
-                                builder: (context) => const HomeScreen()),
+                                builder: (context) =>
+                                    const HomeScreenFournisseur()),
                             (route) => false),
                       ),
                 );

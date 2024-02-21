@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:nadif/provider/provider_auth.dart';
 import 'package:nadif/screens/register_screen.dart';
-import 'package:nadif/screens/typeof_user.dart';
+
 import 'package:nadif/widgets/custom_button.dart';
 import 'package:provider/provider.dart';
 import 'home_screen.dart';
@@ -62,7 +62,8 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
                               () => Navigator.pushReplacement(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => const HomeScreen(),
+                                  builder: (context) =>
+                                      const HomeScreenAchteur(),
                                 ),
                               ),
                             );

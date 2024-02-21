@@ -1,36 +1,62 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:nadif/screens/ouail_screen.dart/detail_drawer/detail_drawer.dart';
-import 'package:nadif/screens/ouail_screen.dart/home_body.dart';
+import 'package:nadif/widgets/custom_button.dart';
 
-class HomeScreenAchteur extends StatefulWidget {
-  const HomeScreenAchteur({Key? key}) : super(key: key);
+import 'annonce.dart';
+
+class HomeScreenFournisseur extends StatefulWidget {
+  const HomeScreenFournisseur({super.key});
 
   @override
-  HomeScreenAchteurState createState() => HomeScreenAchteurState();
+  State<HomeScreenFournisseur> createState() => _HomeScreenFournisseurState();
 }
 
-class HomeScreenAchteurState extends State<HomeScreenAchteur> {
+class _HomeScreenFournisseurState extends State<HomeScreenFournisseur> {
   DateTime? selectedDate;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: const Text('Bienvenue Acheteur'),
-        backgroundColor: Colors.greenAccent,
-        actions: <Widget>[
-          IconButton(
-            icon: const Icon(Icons.calendar_today),
-            onPressed: () {
-              _selectDate(context);
-            },
-          ),
-        ],
-      ),
-      drawer: const DrawerScreen(),
-      body: const HomeBody(),
-    );
+        appBar: AppBar(
+          title: const Text('Fournisseur Home page '),
+          backgroundColor: Colors.tealAccent,
+          actions: <Widget>[
+            IconButton(
+              icon: const Icon(Icons.calendar_today),
+              onPressed: () {
+                _selectDate(context);
+              },
+            ),
+          ],
+        ),
+        drawer: const DrawerScreen(),
+        body: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            Container(
+              margin: const EdgeInsets.only(top: 30),
+              padding: const EdgeInsets.all(25),
+              child: const Image(
+                image: AssetImage('assets/Images/annonce2.png'),
+              ),
+            ),
+            const SizedBox(
+              height: 10.0,
+            ),
+            const Text(
+              "Il vous reste quelques étapes à suivre ",
+              style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+            ),
+            const SizedBox(
+              height: 50,
+            ),
+            CustomButton(
+                text: "Créer une Annonce",
+                onPressed: () {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (context) => const Annonce()));
+                })
+          ],
+        ));
   }
 
   Future<void> _selectDate(BuildContext context) async {

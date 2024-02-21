@@ -11,8 +11,7 @@ class AchteurInformations extends StatefulWidget {
   const AchteurInformations({Key? key}) : super(key: key);
 
   @override
-  State<AchteurInformations> createState() =>
-      _AchteurInformationsState();
+  State<AchteurInformations> createState() => _AchteurInformationsState();
 }
 
 class _AchteurInformationsState extends State<AchteurInformations> {
@@ -22,7 +21,7 @@ class _AchteurInformationsState extends State<AchteurInformations> {
 
   @override
   void dispose() {
-    // TODO: implement dispose
+    //  implement dispose
     super.dispose();
     nameController.dispose();
     emailController.dispose();
@@ -46,81 +45,81 @@ class _AchteurInformationsState extends State<AchteurInformations> {
       body: SafeArea(
         child: isLoading == true
             ? const Center(
-          child: CircularProgressIndicator(
-            color: Colors.greenAccent,
-          ),
-        )
-            : SingleChildScrollView(
-          padding:
-          const EdgeInsets.symmetric(vertical: 25.0, horizontal: 5.0),
-          child: Center(
-            child: Column(
-              children: [
-                InkWell(
-                  onTap: () {
-                    selectImage();
-                  },
-                  child: image == null
-                      ? const CircleAvatar(
-                    radius: 50.0,
-                    backgroundColor: Colors.greenAccent,
-                    child: Icon(
-                      Icons.account_circle,
-                      size: 50.00,
-                      color: Colors.white,
-                    ),
-                  )
-                      : CircleAvatar(
-                    backgroundImage: FileImage(image!),
-                    radius: 50.0,
-                  ),
+                child: CircularProgressIndicator(
+                  color: Colors.greenAccent,
                 ),
-                Container(
-                  width: MediaQuery.of(context).size.width,
-                  padding: const EdgeInsets.symmetric(
-                      vertical: 5.0, horizontal: 15.0),
-                  margin: const EdgeInsets.only(top: 20.0),
+              )
+            : SingleChildScrollView(
+                padding:
+                    const EdgeInsets.symmetric(vertical: 25.0, horizontal: 5.0),
+                child: Center(
                   child: Column(
                     children: [
-                      //name
-                      textField(
-                          hintText: 'User name',
-                          icon: Icons.account_circle,
-                          inputType: TextInputType.name,
-                          controller: nameController),
-                      //email
-                      textField(
-                          hintText: 'exmaple@gmail.com',
-                          icon: Icons.email_rounded,
-                          inputType: TextInputType.emailAddress,
-                          controller: emailController),
-                      const SizedBox(
-                        height: 20.0,
+                      InkWell(
+                        onTap: () {
+                          selectImage();
+                        },
+                        child: image == null
+                            ? const CircleAvatar(
+                                radius: 50.0,
+                                backgroundColor: Colors.greenAccent,
+                                child: Icon(
+                                  Icons.account_circle,
+                                  size: 50.00,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : CircleAvatar(
+                                backgroundImage: FileImage(image!),
+                                radius: 50.0,
+                              ),
                       ),
-                      SizedBox(
-                          height: 50.0,
-                          width: MediaQuery.of(context).size.width,
-                          child: CustomButton(
-                              text: 'Continue',
-                              onPressed: () {
-                                storeData();
-                              })),
+                      Container(
+                        width: MediaQuery.of(context).size.width,
+                        padding: const EdgeInsets.symmetric(
+                            vertical: 5.0, horizontal: 15.0),
+                        margin: const EdgeInsets.only(top: 20.0),
+                        child: Column(
+                          children: [
+                            //name
+                            textField(
+                                hintText: 'User name',
+                                icon: Icons.account_circle,
+                                inputType: TextInputType.name,
+                                controller: nameController),
+                            //email
+                            textField(
+                                hintText: 'exmaple@gmail.com',
+                                icon: Icons.email_rounded,
+                                inputType: TextInputType.emailAddress,
+                                controller: emailController),
+                            const SizedBox(
+                              height: 20.0,
+                            ),
+                            SizedBox(
+                                height: 50.0,
+                                width: MediaQuery.of(context).size.width,
+                                child: CustomButton(
+                                    text: 'Continue',
+                                    onPressed: () {
+                                      storeData();
+                                    })),
+                          ],
+                        ),
+                      ),
                     ],
                   ),
                 ),
-              ],
-            ),
-          ),
-        ),
+              ),
       ),
     );
   }
 
   Widget textField(
       {required String hintText,
-        required IconData icon,
-        required TextInputType inputType,
-        required TextEditingController controller}) {
+      required IconData icon,
+      required TextInputType inputType,
+      required TextEditingController controller}) {
     return Padding(
       padding: const EdgeInsets.only(bottom: 20.0),
       child: TextFormField(
@@ -178,13 +177,14 @@ class _AchteurInformationsState extends State<AchteurInformations> {
           onSuccess: () {
             ap.saveUserDataToSP().then(
                   (value) => ap.setSignIn().then(
-                    (value) => Navigator.pushAndRemoveUntil(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const HomeScreen()),
-                        (route) => false),
-              ),
-            );
+                        (value) => Navigator.pushAndRemoveUntil(
+                            context,
+                            MaterialPageRoute(
+                                builder: (context) =>
+                                    const HomeScreenAchteur()),
+                            (route) => false),
+                      ),
+                );
           });
     } else {
       showSnackBar(context, "Please upload your image profile");
